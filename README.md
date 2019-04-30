@@ -1,8 +1,13 @@
-# forceth
+# Forceth
 
-A factory contract that creates a child and self destructs it to a destination,
-forcing the ether sent to the child on creation to be deposited at the destination
-address.
+A tool to send ether to a contract irrespective of its default payable function.
 
-This can be used to send ether to a contract that has no payable function, or
-would have an undesirable result should a normal ether transfer be made
+## Deployments
+
+### Mainnet
+
+### Kovan
+
+### Rinkeby
+
+### Ropsten
