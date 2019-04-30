@@ -1,0 +1,28 @@
+{
+    "issues": [
+        {
+            "issues": [],
+            "sourceType": "solidity-file",
+            "sourceFormat": "text",
+            "sourceList": [
+                "Forceth.sol"
+            ],
+            "meta": {
+                "coveredInstructions": 92941,
+                "coveredPaths": 2213,
+                "logs": [
+                    {
+                        "level": "error",
+                        "msg": "Maru:Error: Unable to detect main source to compile"
+                    },
+                    {
+                        "level": "error",
+                        "msg": "Maru:Error: Errors returned by the Solidity compiler. Check your code for syntax errors and that you have submitted all imports."
+                    }
+                ],
+                "selectedCompiler": "Unknown"
+            }
+        }
+    ],
+    "uuid": "3a01a908-416f-42af-9aa6-70e87b533845"
+}
