@@ -4,6 +4,7 @@ A tool to send ether to a contract irrespective of its default payable function.
 
 The deployed contract is a factory, with a payable function `sendTo(address)`. This deploys a depositor contract which self destructs, transferring the balance to the address in the function argument. The use cases are niche. This was developed so REKT tokens from [rekt.fyi](https://rekt.fyi) could be sent to closed ICO contracts, because you can't send REKT to an address with a balance of 0 but its funny if you send REKT to shitcoins.
 
+
 ## Deployments
 
 ### Mainnet
@@ -19,3 +20,9 @@ The deployed contract is a factory, with a payable function `sendTo(address)`. T
 
 ### Görli
 [0xf764a516240D60eE6c4c8F5aF5fe7ff6b76500D6](https://goerli.etherscan.io/address/0xf764a516240D60eE6c4c8F5aF5fe7ff6b76500D6)
+
+
+## Usage
+
+Use the *Write Contract* tab on etherscan, call the function `sendTo(address)` or construct your own data:
+`0xe6d25245000000000000000000000000<ethereum address without 0x at the start>`
