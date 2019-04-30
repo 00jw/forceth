@@ -14,22 +14,22 @@
     }
   ],
   "bytecode": "0x6080604052604051602080604c83398101806040526020811015602157600080fd5b81019080805190602001909291905050508073ffffffffffffffffffffffffffffffffffffffff16fffe",
-  "deployedBytecode": "0x6080604052600080fdfea165627a7a7230582083f2815a3bad02950ab31246a1363cf014aa86bf082609da20e1ad231e531dc60029",
-  "sourceMap": "632:121:0:-;;;656:94;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;656:94:0;;;;;;;;;;;;;;;;732:11;719:25;;",
-  "deployedSourceMap": "632:121:0:-;;;;;",
-  "source": "pragma solidity 0.5.1;\r\n\r\n/**\r\n* @title forceth\r\n* @notice A factory contract that creates a depositor and self destructs it to a destination,\r\n* forcing the ether sent to the depositor on creation to be deposited to the destination address.\r\n*\r\n* This can be used to send ether to a contract that has no payable function, or would\r\n* have an undesirable result should a normal ether transfer be made.\r\n**/\r\ncontract Forceth {\r\n  function sendTo(address payable destination) public payable {\r\n    require(destination != address(this), \"Destination cannot be forceth\");\r\n    (new Depositor).value(msg.value)(destination);\r\n  }\r\n}\r\n\r\ncontract Depositor {\r\n  constructor(address payable destination) public payable {\r\n    selfdestruct(destination);\r\n  }\r\n}",
+  "deployedBytecode": "0x6080604052600080fdfea165627a7a723058207e75d62f1c07b9cb530ad66b916d9249480ab0c80d6d00cdbf679ceb58cb3f630029",
+  "sourceMap": "292:121:0:-;;;316:94;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;316:94:0;;;;;;;;;;;;;;;;392:11;379:25;;",
+  "deployedSourceMap": "292:121:0:-;;;;;",
+  "source": "pragma solidity 0.5.1;\r\n\r\n/**\r\n* @title Forceth\r\n* @notice A tool to send ether to a contract irrespective of its default payable function\r\n**/\r\ncontract Forceth {\r\n  function sendTo(address payable destination) public payable {\r\n    (new Depositor).value(msg.value)(destination);\r\n  }\r\n}\r\n\r\ncontract Depositor {\r\n  constructor(address payable destination) public payable {\r\n    selfdestruct(destination);\r\n  }\r\n}",
   "sourcePath": "/mnt/c/Users/wigfi/Documents/projects/github/forceth/contracts/Forceth.sol",
   "ast": {
     "absolutePath": "/mnt/c/Users/wigfi/Documents/projects/github/forceth/contracts/Forceth.sol",
     "exportedSymbols": {
       "Depositor": [
-        38
+        29
       ],
       "Forceth": [
-        27
+        18
       ]
     },
-    "id": 39,
+    "id": 30,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -45,23 +45,23 @@
       {
         "baseContracts": [],
         "contractDependencies": [
-          38
+          29
         ],
         "contractKind": "contract",
-        "documentation": "@title forceth\r\n@notice A factory contract that creates a depositor and self destructs it to a destination,\r\nforcing the ether sent to the depositor on creation to be deposited to the destination address.\r\n\n* This can be used to send ether to a contract that has no payable function, or would\r\nhave an undesirable result should a normal ether transfer be made.\r*",
+        "documentation": "@title Forceth\r\n@notice A tool to send ether to a contract irrespective of its default payable function\r*",
         "fullyImplemented": true,
-        "id": 27,
+        "id": 18,
         "linearizedBaseContracts": [
-          27
+          18
         ],
         "name": "Forceth",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 25,
+              "id": 16,
               "nodeType": "Block",
-              "src": "490:135:0",
+              "src": "227:58:0",
               "statements": [
                 {
                   "expression": {
@@ -69,161 +69,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "commonType": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        },
-                        "id": 11,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "leftExpression": {
-                          "argumentTypes": null,
-                          "id": 7,
-                          "name": "destination",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 3,
-                          "src": "505:11:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address_payable",
-                            "typeString": "address payable"
-                          }
-                        },
-                        "nodeType": "BinaryOperation",
-                        "operator": "!=",
-                        "rightExpression": {
-                          "argumentTypes": null,
-                          "arguments": [
-                            {
-                              "argumentTypes": null,
-                              "id": 9,
-                              "name": "this",
-                              "nodeType": "Identifier",
-                              "overloadedDeclarations": [],
-                              "referencedDeclaration": 123,
-                              "src": "528:4:0",
-                              "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_Forceth_$27",
-                                "typeString": "contract Forceth"
-                              }
-                            }
-                          ],
-                          "expression": {
-                            "argumentTypes": [
-                              {
-                                "typeIdentifier": "t_contract$_Forceth_$27",
-                                "typeString": "contract Forceth"
-                              }
-                            ],
-                            "id": 8,
-                            "isConstant": false,
-                            "isLValue": false,
-                            "isPure": true,
-                            "lValueRequested": false,
-                            "nodeType": "ElementaryTypeNameExpression",
-                            "src": "520:7:0",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_address_$",
-                              "typeString": "type(address)"
-                            },
-                            "typeName": "address"
-                          },
-                          "id": 10,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "kind": "typeConversion",
-                          "lValueRequested": false,
-                          "names": [],
-                          "nodeType": "FunctionCall",
-                          "src": "520:13:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          }
-                        },
-                        "src": "505:28:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "hexValue": "44657374696e6174696f6e2063616e6e6f7420626520666f7263657468",
-                        "id": 12,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": true,
-                        "kind": "string",
-                        "lValueRequested": false,
-                        "nodeType": "Literal",
-                        "src": "535:31:0",
-                        "subdenomination": null,
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_stringliteral_98579222809c89d4aec6cc7b9098f10b8b0fddf760daf3b03b93a505650ea2a1",
-                          "typeString": "literal_string \"Destination cannot be forceth\""
-                        },
-                        "value": "Destination cannot be forceth"
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        },
-                        {
-                          "typeIdentifier": "t_stringliteral_98579222809c89d4aec6cc7b9098f10b8b0fddf760daf3b03b93a505650ea2a1",
-                          "typeString": "literal_string \"Destination cannot be forceth\""
-                        }
-                      ],
-                      "id": 6,
-                      "name": "require",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        113,
-                        114
-                      ],
-                      "referencedDeclaration": 114,
-                      "src": "497:7:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
-                        "typeString": "function (bool,string memory) pure"
-                      }
-                    },
-                    "id": 13,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "kind": "functionCall",
-                    "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "497:70:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$__$",
-                      "typeString": "tuple()"
-                    }
-                  },
-                  "id": 14,
-                  "nodeType": "ExpressionStatement",
-                  "src": "497:70:0"
-                },
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "id": 22,
+                        "id": 13,
                         "name": "destination",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 3,
-                        "src": "607:11:0",
+                        "src": "267:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -242,18 +93,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 19,
+                            "id": 10,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 110,
-                            "src": "596:3:0",
+                            "referencedDeclaration": 101,
+                            "src": "256:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 20,
+                          "id": 11,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -261,7 +112,7 @@
                           "memberName": "value",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "596:9:0",
+                          "src": "256:9:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -280,45 +131,45 @@
                           "components": [
                             {
                               "argumentTypes": null,
-                              "id": 16,
+                              "id": 7,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "NewExpression",
-                              "src": "575:13:0",
+                              "src": "235:13:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$38_$",
+                                "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$29_$",
                                 "typeString": "function (address payable) payable returns (contract Depositor)"
                               },
                               "typeName": {
                                 "contractScope": null,
-                                "id": 15,
+                                "id": 6,
                                 "name": "Depositor",
                                 "nodeType": "UserDefinedTypeName",
-                                "referencedDeclaration": 38,
-                                "src": "579:9:0",
+                                "referencedDeclaration": 29,
+                                "src": "239:9:0",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_contract$_Depositor_$38",
+                                  "typeIdentifier": "t_contract$_Depositor_$29",
                                   "typeString": "contract Depositor"
                                 }
                               }
                             }
                           ],
-                          "id": 17,
+                          "id": 8,
                           "isConstant": false,
                           "isInlineArray": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "TupleExpression",
-                          "src": "574:15:0",
+                          "src": "234:15:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$38_$",
+                            "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$29_$",
                             "typeString": "function (address payable) payable returns (contract Depositor)"
                           }
                         },
-                        "id": 18,
+                        "id": 9,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -326,13 +177,13 @@
                         "memberName": "value",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "574:21:0",
+                        "src": "234:21:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_setvalue_nonpayable$_t_uint256_$returns$_t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$38_$value_$",
+                          "typeIdentifier": "t_function_setvalue_nonpayable$_t_uint256_$returns$_t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$29_$value_$",
                           "typeString": "function (uint256) returns (function (address payable) payable returns (contract Depositor))"
                         }
                       },
-                      "id": 21,
+                      "id": 12,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -340,13 +191,13 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "574:32:0",
+                      "src": "234:32:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$38_$value",
+                        "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$29_$value",
                         "typeString": "function (address payable) payable returns (contract Depositor)"
                       }
                     },
-                    "id": 23,
+                    "id": 14,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -354,20 +205,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "574:45:0",
+                    "src": "234:45:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Depositor_$38",
+                      "typeIdentifier": "t_contract$_Depositor_$29",
                       "typeString": "contract Depositor"
                     }
                   },
-                  "id": 24,
+                  "id": 15,
                   "nodeType": "ExpressionStatement",
-                  "src": "574:45:0"
+                  "src": "234:45:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 26,
+            "id": 17,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -382,8 +233,8 @@
                   "id": 3,
                   "name": "destination",
                   "nodeType": "VariableDeclaration",
-                  "scope": 26,
-                  "src": "446:27:0",
+                  "scope": 17,
+                  "src": "183:27:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -394,7 +245,7 @@
                     "id": 2,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "446:15:0",
+                    "src": "183:15:0",
                     "stateMutability": "payable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
@@ -405,23 +256,23 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "445:29:0"
+              "src": "182:29:0"
             },
             "returnParameters": {
               "id": 5,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "490:0:0"
+              "src": "227:0:0"
             },
-            "scope": 27,
-            "src": "430:195:0",
+            "scope": 18,
+            "src": "167:118:0",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 39,
-        "src": "408:220:0"
+        "scope": 30,
+        "src": "145:143:0"
       },
       {
         "baseContracts": [],
@@ -429,18 +280,18 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 38,
+        "id": 29,
         "linearizedBaseContracts": [
-          38
+          29
         ],
         "name": "Depositor",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 36,
+              "id": 27,
               "nodeType": "Block",
-              "src": "712:38:0",
+              "src": "372:38:0",
               "statements": [
                 {
                   "expression": {
@@ -448,12 +299,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 33,
+                        "id": 24,
                         "name": "destination",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 29,
-                        "src": "732:11:0",
+                        "referencedDeclaration": 20,
+                        "src": "392:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -467,18 +318,18 @@
                           "typeString": "address payable"
                         }
                       ],
-                      "id": 32,
+                      "id": 23,
                       "name": "selfdestruct",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 118,
-                      "src": "719:12:0",
+                      "referencedDeclaration": 109,
+                      "src": "379:12:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_payable_$returns$__$",
                         "typeString": "function (address payable)"
                       }
                     },
-                    "id": 34,
+                    "id": 25,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -486,36 +337,36 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "719:25:0",
+                    "src": "379:25:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 35,
+                  "id": 26,
                   "nodeType": "ExpressionStatement",
-                  "src": "719:25:0"
+                  "src": "379:25:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 37,
+            "id": 28,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 30,
+              "id": 21,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 29,
+                  "id": 20,
                   "name": "destination",
                   "nodeType": "VariableDeclaration",
-                  "scope": 37,
-                  "src": "668:27:0",
+                  "scope": 28,
+                  "src": "328:27:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -523,10 +374,10 @@
                     "typeString": "address payable"
                   },
                   "typeName": {
-                    "id": 28,
+                    "id": 19,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "668:15:0",
+                    "src": "328:15:0",
                     "stateMutability": "payable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
@@ -537,38 +388,38 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "667:29:0"
+              "src": "327:29:0"
             },
             "returnParameters": {
-              "id": 31,
+              "id": 22,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "712:0:0"
+              "src": "372:0:0"
             },
-            "scope": 38,
-            "src": "656:94:0",
+            "scope": 29,
+            "src": "316:94:0",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 39,
-        "src": "632:121:0"
+        "scope": 30,
+        "src": "292:121:0"
       }
     ],
-    "src": "0:753:0"
+    "src": "0:413:0"
   },
   "legacyAST": {
     "absolutePath": "/mnt/c/Users/wigfi/Documents/projects/github/forceth/contracts/Forceth.sol",
     "exportedSymbols": {
       "Depositor": [
-        38
+        29
       ],
       "Forceth": [
-        27
+        18
       ]
     },
-    "id": 39,
+    "id": 30,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -584,23 +435,23 @@
       {
         "baseContracts": [],
         "contractDependencies": [
-          38
+          29
         ],
         "contractKind": "contract",
-        "documentation": "@title forceth\r\n@notice A factory contract that creates a depositor and self destructs it to a destination,\r\nforcing the ether sent to the depositor on creation to be deposited to the destination address.\r\n\n* This can be used to send ether to a contract that has no payable function, or would\r\nhave an undesirable result should a normal ether transfer be made.\r*",
+        "documentation": "@title Forceth\r\n@notice A tool to send ether to a contract irrespective of its default payable function\r*",
         "fullyImplemented": true,
-        "id": 27,
+        "id": 18,
         "linearizedBaseContracts": [
-          27
+          18
         ],
         "name": "Forceth",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 25,
+              "id": 16,
               "nodeType": "Block",
-              "src": "490:135:0",
+              "src": "227:58:0",
               "statements": [
                 {
                   "expression": {
@@ -608,161 +459,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "commonType": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        },
-                        "id": 11,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "leftExpression": {
-                          "argumentTypes": null,
-                          "id": 7,
-                          "name": "destination",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 3,
-                          "src": "505:11:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address_payable",
-                            "typeString": "address payable"
-                          }
-                        },
-                        "nodeType": "BinaryOperation",
-                        "operator": "!=",
-                        "rightExpression": {
-                          "argumentTypes": null,
-                          "arguments": [
-                            {
-                              "argumentTypes": null,
-                              "id": 9,
-                              "name": "this",
-                              "nodeType": "Identifier",
-                              "overloadedDeclarations": [],
-                              "referencedDeclaration": 123,
-                              "src": "528:4:0",
-                              "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_Forceth_$27",
-                                "typeString": "contract Forceth"
-                              }
-                            }
-                          ],
-                          "expression": {
-                            "argumentTypes": [
-                              {
-                                "typeIdentifier": "t_contract$_Forceth_$27",
-                                "typeString": "contract Forceth"
-                              }
-                            ],
-                            "id": 8,
-                            "isConstant": false,
-                            "isLValue": false,
-                            "isPure": true,
-                            "lValueRequested": false,
-                            "nodeType": "ElementaryTypeNameExpression",
-                            "src": "520:7:0",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_address_$",
-                              "typeString": "type(address)"
-                            },
-                            "typeName": "address"
-                          },
-                          "id": 10,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "kind": "typeConversion",
-                          "lValueRequested": false,
-                          "names": [],
-                          "nodeType": "FunctionCall",
-                          "src": "520:13:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          }
-                        },
-                        "src": "505:28:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "hexValue": "44657374696e6174696f6e2063616e6e6f7420626520666f7263657468",
-                        "id": 12,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": true,
-                        "kind": "string",
-                        "lValueRequested": false,
-                        "nodeType": "Literal",
-                        "src": "535:31:0",
-                        "subdenomination": null,
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_stringliteral_98579222809c89d4aec6cc7b9098f10b8b0fddf760daf3b03b93a505650ea2a1",
-                          "typeString": "literal_string \"Destination cannot be forceth\""
-                        },
-                        "value": "Destination cannot be forceth"
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        },
-                        {
-                          "typeIdentifier": "t_stringliteral_98579222809c89d4aec6cc7b9098f10b8b0fddf760daf3b03b93a505650ea2a1",
-                          "typeString": "literal_string \"Destination cannot be forceth\""
-                        }
-                      ],
-                      "id": 6,
-                      "name": "require",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        113,
-                        114
-                      ],
-                      "referencedDeclaration": 114,
-                      "src": "497:7:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
-                        "typeString": "function (bool,string memory) pure"
-                      }
-                    },
-                    "id": 13,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "kind": "functionCall",
-                    "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "497:70:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$__$",
-                      "typeString": "tuple()"
-                    }
-                  },
-                  "id": 14,
-                  "nodeType": "ExpressionStatement",
-                  "src": "497:70:0"
-                },
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "id": 22,
+                        "id": 13,
                         "name": "destination",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 3,
-                        "src": "607:11:0",
+                        "src": "267:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -781,18 +483,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 19,
+                            "id": 10,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 110,
-                            "src": "596:3:0",
+                            "referencedDeclaration": 101,
+                            "src": "256:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 20,
+                          "id": 11,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -800,7 +502,7 @@
                           "memberName": "value",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "596:9:0",
+                          "src": "256:9:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -819,45 +521,45 @@
                           "components": [
                             {
                               "argumentTypes": null,
-                              "id": 16,
+                              "id": 7,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "NewExpression",
-                              "src": "575:13:0",
+                              "src": "235:13:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$38_$",
+                                "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$29_$",
                                 "typeString": "function (address payable) payable returns (contract Depositor)"
                               },
                               "typeName": {
                                 "contractScope": null,
-                                "id": 15,
+                                "id": 6,
                                 "name": "Depositor",
                                 "nodeType": "UserDefinedTypeName",
-                                "referencedDeclaration": 38,
-                                "src": "579:9:0",
+                                "referencedDeclaration": 29,
+                                "src": "239:9:0",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_contract$_Depositor_$38",
+                                  "typeIdentifier": "t_contract$_Depositor_$29",
                                   "typeString": "contract Depositor"
                                 }
                               }
                             }
                           ],
-                          "id": 17,
+                          "id": 8,
                           "isConstant": false,
                           "isInlineArray": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "TupleExpression",
-                          "src": "574:15:0",
+                          "src": "234:15:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$38_$",
+                            "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$29_$",
                             "typeString": "function (address payable) payable returns (contract Depositor)"
                           }
                         },
-                        "id": 18,
+                        "id": 9,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -865,13 +567,13 @@
                         "memberName": "value",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "574:21:0",
+                        "src": "234:21:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_setvalue_nonpayable$_t_uint256_$returns$_t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$38_$value_$",
+                          "typeIdentifier": "t_function_setvalue_nonpayable$_t_uint256_$returns$_t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$29_$value_$",
                           "typeString": "function (uint256) returns (function (address payable) payable returns (contract Depositor))"
                         }
                       },
-                      "id": 21,
+                      "id": 12,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -879,13 +581,13 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "574:32:0",
+                      "src": "234:32:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$38_$value",
+                        "typeIdentifier": "t_function_creation_payable$_t_address_payable_$returns$_t_contract$_Depositor_$29_$value",
                         "typeString": "function (address payable) payable returns (contract Depositor)"
                       }
                     },
-                    "id": 23,
+                    "id": 14,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -893,20 +595,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "574:45:0",
+                    "src": "234:45:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Depositor_$38",
+                      "typeIdentifier": "t_contract$_Depositor_$29",
                       "typeString": "contract Depositor"
                     }
                   },
-                  "id": 24,
+                  "id": 15,
                   "nodeType": "ExpressionStatement",
-                  "src": "574:45:0"
+                  "src": "234:45:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 26,
+            "id": 17,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -921,8 +623,8 @@
                   "id": 3,
                   "name": "destination",
                   "nodeType": "VariableDeclaration",
-                  "scope": 26,
-                  "src": "446:27:0",
+                  "scope": 17,
+                  "src": "183:27:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -933,7 +635,7 @@
                     "id": 2,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "446:15:0",
+                    "src": "183:15:0",
                     "stateMutability": "payable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
@@ -944,23 +646,23 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "445:29:0"
+              "src": "182:29:0"
             },
             "returnParameters": {
               "id": 5,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "490:0:0"
+              "src": "227:0:0"
             },
-            "scope": 27,
-            "src": "430:195:0",
+            "scope": 18,
+            "src": "167:118:0",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 39,
-        "src": "408:220:0"
+        "scope": 30,
+        "src": "145:143:0"
       },
       {
         "baseContracts": [],
@@ -968,18 +670,18 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 38,
+        "id": 29,
         "linearizedBaseContracts": [
-          38
+          29
         ],
         "name": "Depositor",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 36,
+              "id": 27,
               "nodeType": "Block",
-              "src": "712:38:0",
+              "src": "372:38:0",
               "statements": [
                 {
                   "expression": {
@@ -987,12 +689,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 33,
+                        "id": 24,
                         "name": "destination",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 29,
-                        "src": "732:11:0",
+                        "referencedDeclaration": 20,
+                        "src": "392:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -1006,18 +708,18 @@
                           "typeString": "address payable"
                         }
                       ],
-                      "id": 32,
+                      "id": 23,
                       "name": "selfdestruct",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 118,
-                      "src": "719:12:0",
+                      "referencedDeclaration": 109,
+                      "src": "379:12:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_payable_$returns$__$",
                         "typeString": "function (address payable)"
                       }
                     },
-                    "id": 34,
+                    "id": 25,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1025,36 +727,36 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "719:25:0",
+                    "src": "379:25:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 35,
+                  "id": 26,
                   "nodeType": "ExpressionStatement",
-                  "src": "719:25:0"
+                  "src": "379:25:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 37,
+            "id": 28,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 30,
+              "id": 21,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 29,
+                  "id": 20,
                   "name": "destination",
                   "nodeType": "VariableDeclaration",
-                  "scope": 37,
-                  "src": "668:27:0",
+                  "scope": 28,
+                  "src": "328:27:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1062,10 +764,10 @@
                     "typeString": "address payable"
                   },
                   "typeName": {
-                    "id": 28,
+                    "id": 19,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "668:15:0",
+                    "src": "328:15:0",
                     "stateMutability": "payable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
@@ -1076,26 +778,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "667:29:0"
+              "src": "327:29:0"
             },
             "returnParameters": {
-              "id": 31,
+              "id": 22,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "712:0:0"
+              "src": "372:0:0"
             },
-            "scope": 38,
-            "src": "656:94:0",
+            "scope": 29,
+            "src": "316:94:0",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 39,
-        "src": "632:121:0"
+        "scope": 30,
+        "src": "292:121:0"
       }
     ],
-    "src": "0:753:0"
+    "src": "0:413:0"
   },
   "compiler": {
     "name": "solc",
@@ -1103,7 +805,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0-beta.2",
-  "updatedAt": "2019-04-29T16:09:17.479Z",
+  "updatedAt": "2019-04-30T07:52:49.627Z",
   "devdoc": {
     "methods": {}
   },
