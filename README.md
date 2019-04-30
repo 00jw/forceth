@@ -12,6 +12,7 @@ The deployed contract is a factory, with a payable function `sendTo(address)`. T
 [0xfb1870B58Abc84e74Bc15d9340549f3c819E0E3D](https://kovan.etherscan.io/address/0xfb1870B58Abc84e74Bc15d9340549f3c819E0E3D)
 
 ### Rinkeby
+[0xDff3D54C50402760A45a686805a4BEA231d57B0A](https://rinkeby.etherscan.io/address/0xDff3D54C50402760A45a686805a4BEA231d57B0A)
 
 ### Ropsten
 [0xf764a516240D60eE6c4c8F5aF5fe7ff6b76500D6](https://ropsten.etherscan.io/address/0xf764a516240D60eE6c4c8F5aF5fe7ff6b76500D6)
