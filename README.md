@@ -24,5 +24,5 @@ The deployed contract is a factory, with a payable function `sendTo(address)`. T
 
 ## Usage
 
-Use the *Write Contract* tab on etherscan, call the function `sendTo(address)` or construct your own data:
+Use the *Write Contract* tab on etherscan, call the function `sendTo(address)`, or construct your own data:
 `0xe6d25245000000000000000000000000<ethereum address without 0x at the start>`
