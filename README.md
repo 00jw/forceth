@@ -16,3 +16,6 @@ The deployed contract is a factory, with a payable function `sendTo(address)`. T
 
 ### Ropsten
 [0xf764a516240D60eE6c4c8F5aF5fe7ff6b76500D6](https://ropsten.etherscan.io/address/0xf764a516240D60eE6c4c8F5aF5fe7ff6b76500D6)
+
+### Görli
+[0xf764a516240D60eE6c4c8F5aF5fe7ff6b76500D6](https://goerli.etherscan.io/address/0xf764a516240D60eE6c4c8F5aF5fe7ff6b76500D6)
