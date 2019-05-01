@@ -8,6 +8,7 @@ The deployed contract is a factory, with a payable function `sendTo(address)`. T
 ## Deployments
 
 ### Mainnet
+[0x03E82c5C236dA52a7F5f44d811f324Ab437e151E](https://etherscan.io/address/0x03E82c5C236dA52a7F5f44d811f324Ab437e151E)
 
 ### Kovan
 [0xfb1870B58Abc84e74Bc15d9340549f3c819E0E3D](https://kovan.etherscan.io/address/0xfb1870B58Abc84e74Bc15d9340549f3c819E0E3D)
