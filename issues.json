@@ -1,0 +1,51 @@
+{
+    "issues": [
+        {
+            "issues": [
+                {
+                    "swcID": "SWC-105",
+                    "swcTitle": "Unprotected Ether Withdrawal",
+                    "description": {
+                        "head": "Anyone can withdraw ETH from the contract account.",
+                        "tail": "Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability."
+                    },
+                    "severity": "High",
+                    "locations": [
+                        {
+                            "sourceMap": "205:42:0"
+                        }
+                    ],
+                    "extra": {
+                        "testCase": {
+                            "initialState": {
+                                "accounts": null
+                            },
+                            "steps": null
+                        }
+                    }
+                }
+            ],
+            "sourceType": "solidity-file",
+            "sourceFormat": "text",
+            "sourceList": [
+                "contracts/test.sol"
+            ],
+            "meta": {
+                "coveredInstructions": 78,
+                "coveredPaths": 4,
+                "logs": [
+                    {
+                        "level": "error",
+                        "msg": "Maru:Error: Unable to detect main source to compile"
+                    },
+                    {
+                        "level": "error",
+                        "msg": "Maru:Error: Errors returned by the Solidity compiler. Check your code for syntax errors and that you have submitted all imports."
+                    }
+                ],
+                "selectedCompiler": "Unknown"
+            }
+        }
+    ],
+    "uuid": "8f963eb7-d177-4b67-baa7-b406043b4ac4"
+}

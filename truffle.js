@@ -30,16 +30,16 @@ module.exports = {
       gasPrice: 20000000000
     },
     goerli: {
-      provider: () => new HDWalletProvider(process.env.MNEMONIC, "https://rinkeby.infura.io/v3/" + process.env.INFURA_API_KEY),
+      provider: () => new HDWalletProvider(process.env.MNEMONIC, "https://goerli.infura.io/v3/" + process.env.INFURA_API_KEY),
       network_id: 5,
       gas: 6000000,
       gasPrice: 20000000000
     },
     mainnet: {
-      provider: () => new HDWalletProvider(process.env.MNEMONIC, "https://infura.io/v3/" + process.env.INFURA_API_KEY),
+      provider: () => new HDWalletProvider(process.env.MNEMONIC, "https://mainnet.infura.io/v3/" + process.env.INFURA_API_KEY),
       network_id: 1,
-      gas: 6000000,
-      gasPrice: 20000000000
+      gas: 400000,
+      gasPrice: 3000000000
     }
   }
 };
