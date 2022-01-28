@@ -235,7 +235,7 @@
     "sha.js": "^2.4.11",
     "sha3": "^1.2.2",
     "simple-concat": "^1.0.0",
-    "simple-get": "^2.8.1",
+    "simple-get": "^4.0.1",
     "sshpk": "^1.16.1",
     "statuses": "^1.5.0",
     "strict-uri-encode": "^1.1.0",
