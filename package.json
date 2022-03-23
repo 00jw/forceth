@@ -171,7 +171,7 @@
     "minimalistic-assert": "^1.0.1",
     "minimalistic-crypto-utils": "^1.0.1",
     "minimatch": "^3.0.4",
-    "minimist": "^0.0.8",
+    "minimist": "^1.2.6",
     "mkdirp": "^0.5.1",
     "mkdirp-promise": "^5.0.1",
     "mock-fs": "^4.9.0",
