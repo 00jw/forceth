@@ -246,7 +246,7 @@
     "tar": "^2.2.1",
     "tar-stream": "^1.6.2",
     "tar.gz": "^1.0.7",
-    "thenify": "^3.3.0",
+    "thenify": "^3.3.1",
     "thenify-all": "^1.6.0",
     "through": "^2.3.8",
     "timed-out": "^4.0.1",
