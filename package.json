@@ -61,7 +61,7 @@
     "crypto-browserify": "^3.12.0",
     "dashdash": "^1.14.1",
     "debug": "^2.6.9",
-    "decode-uri-component": "^0.2.0",
+    "decode-uri-component": "^0.2.1",
     "decompress-response": "^3.3.0",
     "decompress-tar": "^4.1.1",
     "decompress-tarbz2": "^4.1.1",
