@@ -209,7 +209,7 @@
     "psl": "^1.1.31",
     "public-encrypt": "^4.0.3",
     "punycode": "^2.1.1",
-    "qs": "^6.7.0",
+    "qs": "^6.7.3",
     "query-string": "^5.1.1",
     "randombytes": "^2.1.0",
     "randomfill": "^1.0.4",
